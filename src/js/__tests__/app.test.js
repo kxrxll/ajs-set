@@ -1,7 +1,29 @@
-import sum from '../basic';
+import Team from '../app';
 
-test('should sum', () => {
-  const result = sum([1, 2, 3]);
+test('Straight test on add() and toArray()', () => {
+  const team = new Team();
+  team.add({ name: 'Ваня', class: 'Archer' });
+  team.add({ name: 'Петя', class: 'Axeman' });
+  team.add({ name: 'Кузя', class: 'Sorcerer' });
+  const expected = [
+    { name: 'Ваня', class: 'Archer' },
+    { name: 'Петя', class: 'Axeman' },
+    { name: 'Кузя', class: 'Sorcerer' },
+  ];
+  expect(team.toArray()).toEqual(expected);
+});
 
-  expect(result).toBe(6);
+test('Straight test on addAll() and toArray()', () => {
+  const team = new Team();
+  team.addAll(
+    { name: 'Ваня', class: 'Archer' },
+    { name: 'Петя', class: 'Axeman' },
+    { name: 'Кузя', class: 'Sorcerer' },
+  );
+  const expected = [
+    { name: 'Ваня', class: 'Archer' },
+    { name: 'Петя', class: 'Axeman' },
+    { name: 'Кузя', class: 'Sorcerer' },
+  ];
+  expect(team.toArray()).toEqual(expected);
 });
