@@ -27,3 +27,12 @@ test('Straight test on addAll() and toArray()', () => {
   ];
   expect(team.toArray()).toEqual(expected);
 });
+
+test('Error test', () => {
+  expect(() => {
+    const team = new Team();
+    const character = { name: 'Ваня', class: 'Archer' };
+    team.add(character);
+    team.add(character);
+  }).toThrow();
+});
